@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:food_runner_flutter/screens/register_screen.dart';
 import 'package:food_runner_flutter/themes/colors.dart';
+import 'package:food_runner_flutter/widgets/custom_button_widget.dart';
+import 'package:food_runner_flutter/widgets/custom_text_field_widget.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -9,75 +11,72 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: orange,
-      body: Column(
+      body: Stack(
         children: [
-          const SizedBox(height: 220),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16.0),
-            child: TextField(
-              decoration: InputDecoration(
-                prefixIcon: Icon(Icons.phone_android),
+          Column(
+            children: [
+              const SizedBox(height: 220),
+              const CustomTextField(
+                iconData: Icons.phone_android,
                 hintText: 'Mobile Number (10 digits)',
-                filled: true,
-                fillColor: Colors.white,
               ),
-            ),
-          ),
-          const SizedBox(height: 12.0),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16.0),
-            child: TextField(
-              decoration: InputDecoration(
-                prefixIcon: Icon(Icons.lock),
+              const SizedBox(height: 12.0),
+              const CustomTextField(
                 hintText: 'Password',
-                filled: true,
-                fillColor: Colors.white,
+                iconData: Icons.lock,
               ),
-            ),
+              CustomButton(
+                buttonText: 'Login',
+                onPressed: () {},
+              ),
+              const SizedBox(height: 10.0),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const RegisterPage(),
+                    ),
+                  );
+                },
+                child: const Text(
+                  'Forgot Password?',
+                  style: TextStyle(
+                      decoration: TextDecoration.underline,
+                      decorationColor: Colors.white,
+                      color: Colors.white,
+                      fontSize: 16.0,
+                      fontWeight: FontWeight.w600),
+                ),
+              ),
+              // Add link to create account page.
+            ],
           ),
-          Padding(
-            padding: const EdgeInsets.only(left: 16.0, right: 16.0, top: 16.0),
-            child: Row(
-              children: [
-                Expanded(
-                  child: FilledButton(
-                    style: const ButtonStyle(
-                      elevation: MaterialStatePropertyAll(2),
-                      shape: MaterialStatePropertyAll(BeveledRectangleBorder()),
-                      backgroundColor: MaterialStatePropertyAll(buttonColorRed),
+          Positioned.fill(
+            bottom: 15,
+            child: Align(
+              alignment: AlignmentDirectional.bottomCenter,
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const RegisterPage(),
                     ),
-                    onPressed: () {},
-                    child: const Text(
-                      'Login',
-                      style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                    ),
+                  );
+                },
+                child: const Text(
+                  'Don\'t have an account? Sign up now',
+                  style: TextStyle(
+                    fontSize: 16,
+                    decoration: TextDecoration.underline,
+                    decorationColor: Colors.white,
+                    color: Colors.white,
                   ),
                 ),
-              ],
+              ),
             ),
           ),
-          const SizedBox(height: 10.0),
-          GestureDetector(
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const RegisterPage(),
-                ),
-              );
-            },
-            child: const Text(
-              'Forgot Password?',
-              style: TextStyle(
-                  decoration: TextDecoration.underline,
-                  decorationColor: Colors.white,
-                  color: Colors.white,
-                  fontSize: 16.0,
-                  fontWeight: FontWeight.w600),
-            ),
-          ),
-          // Add link to create account page.
         ],
       ),
     );
