@@ -26,17 +26,14 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Text(
           'FoodRunner',
           style: TextStyle(
-            fontSize: 32.0,
-            fontWeight: FontWeight.w600,
-            color: Colors.white
-          ),
+              fontSize: 32.0, fontWeight: FontWeight.w600, color: Colors.white),
         ),
       ),
     );
   }
 
   Future<void> transitToHomePage() async {
-    await Future.delayed(const Duration(seconds: 3), () {
+    await Future.delayed(const Duration(seconds: 2), () {
       Navigator.pushReplacement(context,
           MaterialPageRoute(builder: (context) => const LoginScreen()));
     });
