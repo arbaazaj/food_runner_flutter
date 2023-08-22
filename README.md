@@ -11,5 +11,8 @@ Internshala Android App Development course module 3 assignment recreated in Flut
 ### Login Screen
 ![Login Screen](screenshots/Login_Screen.png)
 
-### Registration Page
+### Registration Screen
 ![Registration Screen](screenshots/Registration_Screen.png)
+
+### Forgot Password Screen
+![Forgot Password Screen](screenshots/Forgot_Password_Screen.png)
