@@ -1,4 +1,4 @@
-# food_runner_flutter
+# Food Runner App in Flutter
 
 Internshala Android App Development course module 3 assignment recreated in Flutter.
 
