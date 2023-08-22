@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_runner_flutter/screens/forgot_password.dart';
 import 'package:food_runner_flutter/screens/register_screen.dart';
 import 'package:food_runner_flutter/themes/colors.dart';
 import 'package:food_runner_flutter/widgets/custom_button_widget.dart';
@@ -17,11 +18,14 @@ class LoginScreen extends StatelessWidget {
             children: [
               const SizedBox(height: 220),
               const CustomTextField(
+                keyboardInputType: TextInputType.phone,
                 iconData: Icons.phone_android,
                 hintText: 'Mobile Number (10 digits)',
               ),
               const SizedBox(height: 12.0),
               const CustomTextField(
+                obscureText: true,
+                keyboardInputType: TextInputType.visiblePassword,
                 hintText: 'Password',
                 iconData: Icons.lock,
               ),
@@ -35,7 +39,7 @@ class LoginScreen extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const RegisterPage(),
+                      builder: (context) => const ForgotPassword(),
                     ),
                   );
                 },
