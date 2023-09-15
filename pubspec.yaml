@@ -37,6 +37,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   http: any
   flutter_dotenv: ^5.1.0
+  simple_animations: ^5.0.2
 
 dev_dependencies:
   flutter_test:
