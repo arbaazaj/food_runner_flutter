@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:food_runner_flutter/screens/forgot_password.dart';
+import 'package:food_runner_flutter/screens/homepage.dart';
 import 'package:food_runner_flutter/screens/register_screen.dart';
+import 'package:food_runner_flutter/testing.dart';
 import 'package:food_runner_flutter/themes/colors.dart';
 import 'package:food_runner_flutter/widgets/custom_button_widget.dart';
 import 'package:food_runner_flutter/widgets/custom_text_field_widget.dart';
@@ -31,7 +33,15 @@ class LoginScreen extends StatelessWidget {
               ),
               CustomButton(
                 buttonText: 'Login',
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      // TODO: Change back to HomePage() after testing.
+                      builder: (context) => const HomePage(),
+                    ),
+                  );
+                },
               ),
               const SizedBox(height: 10.0),
               GestureDetector(
